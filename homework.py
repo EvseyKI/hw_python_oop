@@ -1,6 +1,18 @@
+from turtle import distance, speed
+
 class InfoMessage:
     """Информационное сообщение о тренировке."""
-    pass
+    def __init__(self, 
+            training_type: str;
+            duration: float, 
+            distance: float,
+            speed: float,
+            calories: float
+            ) -> None:
+        self.training_type = training_type
+        self.duration = duration
+        self.distance = distance
+        self.speed = speed
 
 
 class Training:
@@ -11,6 +23,9 @@ class Training:
                  duration: float,
                  weight: float,
                  ) -> None:
+        self.action = action
+        self.duration = duration
+        self. weight = weight
         pass
 
     def get_distance(self) -> float:
