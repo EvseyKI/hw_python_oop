@@ -127,12 +127,10 @@ def read_package(workout_types: str, list_data: list) -> Training:
                     'WLK': SportsWalking}
     return dict_training[workout_types]( * list_data)
 
-
 def main(train: Training) -> None:
     """Главная функция."""
     info = train.show_training_info()
     print(info.get_message())
-
 
 if __name__ == '__main__':
     packages = [
