@@ -1,4 +1,3 @@
-from tkinter.messagebox import RETRY
 from turtle import distance, speed
 
 class InfoMessage:
