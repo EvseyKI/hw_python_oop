@@ -1,5 +1,3 @@
-from turtle import distance, speed
-
 class InfoMessage:
     """Информационное сообщение о тренировке."""
     def __init__(self, 
@@ -125,7 +123,7 @@ def read_package(workout_types: str, list_data: list) -> Training:
     dict_training = {'SWM': Swimming,
                     'RUN': Running,
                     'WLK': SportsWalking}
-    return dict_training[workout_types]( * list_data)
+    return dict_training[workout_types](*list_data)
 
 def main(train: Training) -> None:
     """Главная функция."""
