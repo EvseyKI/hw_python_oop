@@ -1,5 +1,6 @@
 class InfoMessage:
     """Информационное сообщение о тренировке."""
+
     def __init__(self,
                  training_type: str,
                  duration: float,
@@ -56,6 +57,7 @@ class Training:
 
 class Running(Training):
     """Тренировка: бег."""
+
     def __init__(self,
                  action: int,
                  duration: float,
@@ -66,12 +68,14 @@ class Running(Training):
         """Получить количество затраченных калорий."""
         coeff_cal_run_1 = 18
         coeff_cal_run_2 = 20
-        return (coeff_cal_run_1 * self.get_mean_speed()
-                - coeff_cal_run_2) * self.weight / self.M_IN_KM * (self.duration * 60)
-
+        return (
+            (coeff_cal_run_1 * self.get_mean_speed() - coeff_cal_run_2)
+            * self.weight / self.M_IN_KM * (self.duration * 60)
+        )
 
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
+
     def __init__(self,
                  action: int,
                  duration: float,
@@ -84,8 +88,11 @@ class SportsWalking(Training):
         """Получить количество затраченных калорий."""
         coeff_cal_wlk_1 = 0.035
         coeff_cal_wlk_2 = 0.029
-        return (coeff_cal_wlk_1 * self.weight + (self.get_mean_speed() ** 2
-                // self.height) * coeff_cal_wlk_2 * self.weight) * self.duration * 60
+        return (
+            (coeff_cal_wlk_1 * self.weight
+             + (self.get_mean_speed() ** 2 // self.height)
+             * coeff_cal_wlk_2 * self.weight) * self.duration * 60
+        )
 
 
 class Swimming(Training):
