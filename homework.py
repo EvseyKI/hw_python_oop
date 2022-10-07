@@ -67,7 +67,7 @@ class Running(Training):
         coeff_cal_run_1 = 18
         coeff_cal_run_2 = 20
         return (coeff_cal_run_1 * self.get_mean_speed()
-        - coeff_cal_run_2) * self.weight / self.M_IN_KM * (self.duration * 60)
+                - coeff_cal_run_2) * self.weight / self.M_IN_KM * (self.duration * 60)
 
 
 class SportsWalking(Training):
@@ -85,13 +85,13 @@ class SportsWalking(Training):
         coeff_cal_wlk_1 = 0.035
         coeff_cal_wlk_2 = 0.029
         return (coeff_cal_wlk_1 * self.weight + (self.get_mean_speed() ** 2
-        // self.height) * coeff_cal_wlk_2 * self.weight) * self.duration * 60
+                // self.height) * coeff_cal_wlk_2 * self.weight) * self.duration * 60
 
 
 class Swimming(Training):
     """Тренировка: плавание."""
     LEN_STEP = 1.38
-    
+
     def __init__(self,
                  action: int,
                  duration: float,
@@ -111,11 +111,12 @@ class Swimming(Training):
         coeff_cal_swm_1 = 1.1
         coeff_cal_swm_2 = 2
         return (self.get_mean_speed() + coeff_cal_swm_1
-        ) * coeff_cal_swm_2 * self.weight 
-    
+                ) * coeff_cal_swm_2 * self.weight
+
     def get_distance(self) -> float:
         """Получить дистанцию в км."""
         return self.action * self.LEN_STEP / self.M_IN_KM
+
 
 def read_package(workout_types: str, list_data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
@@ -124,10 +125,12 @@ def read_package(workout_types: str, list_data: list) -> Training:
                      'WLK': SportsWalking}
     return dict_training[workout_types](*list_data)
 
+
 def main(train: Training) -> None:
     """Главная функция."""
     info = train.show_training_info()
     print(info.get_message())
+
 
 if __name__ == '__main__':
     packages = [
