@@ -24,7 +24,7 @@ class Training:
     """Базовый класс тренировки."""
     LEN_STEP = 0.65
     M_IN_KM = 1000
-    
+
     def __init__(self,
                  action: int,
                  duration: float,
@@ -69,6 +69,7 @@ class Running(Training):
         return (coeff_cal_run_1 * self.get_mean_speed()
         - coeff_cal_run_2) * self.weight / self.M_IN_KM * (self.duration * 60)
 
+
 class SportsWalking(Training):
     """Тренировка: спортивная ходьба."""
     def __init__(self,
@@ -86,9 +87,11 @@ class SportsWalking(Training):
         return (coeff_cal_wlk_1 * self.weight + (self.get_mean_speed() ** 2
         // self.height) * coeff_cal_wlk_2 * self.weight) * self.duration * 60
 
+
 class Swimming(Training):
     """Тренировка: плавание."""
     LEN_STEP = 1.38
+    
     def __init__(self,
                  action: int,
                  duration: float,
