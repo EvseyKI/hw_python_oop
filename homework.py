@@ -11,7 +11,7 @@ class InfoMessage:
     calories: float
 
     def get_message(self) -> str:
-        message  = ("Тип тренировки: {training_type}; "
+        message = ("Тип тренировки: {training_type}; "
                     "Длительность: {duration:.3f} ч.; "
                     "Дистанция: {distance:.3f} км; "
                     "Ср. скорость: {speed:.3f} км/ч; "
@@ -44,7 +44,8 @@ class Training:
     def get_spent_calories(self) -> float:
         """Получить количество затраченных калорий."""
         raise NotImplementedError(
-                'Определите get_spent_calories в %s.' % (self.__class__.__name__))
+            'Определите get_spent_calories в %s.' % (self.__class__.__name__)
+        )
 
     def show_training_info(self) -> InfoMessage:
         """Вернуть информационное сообщение о выполненной тренировке."""
@@ -130,8 +131,8 @@ class Swimming(Training):
 def read_package(workout_type: str, data: list) -> Training:
     """Прочитать данные полученные от датчиков."""
     dict_training: dict[str, type[Training]] = {'SWM': Swimming,
-                     'RUN': Running,
-                     'WLK': SportsWalking,}
+                                                'RUN': Running,
+                                                'WLK': SportsWalking}
     if workout_type in dict_training:
         return dict_training[workout_type](*data)
     else:
